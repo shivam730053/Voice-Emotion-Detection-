@@ -1,5 +1,5 @@
 import streamlit as st
-from main import feature_extract
+from utils import feature_extract
 import time
 import joblib
 
