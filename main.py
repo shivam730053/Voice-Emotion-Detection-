@@ -6,6 +6,8 @@ from sklearn.metrics import classification_report
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 import streamlit as st
+import joblib
+
 
 
 def feature_extract(file_path):
@@ -87,6 +89,9 @@ model.fit(X_train, y_train)
 y_pred=model.predict(X_test)
 # Shows precesion, recall, f1 score on every emotion
 print(classification_report(y_test, y_pred))
+
+model = joblib.dump(model,"model.pkl")
+scaler = joblib.dump(scaler,"scaler.pkl")
 
 def prediction(file_path):
     """
