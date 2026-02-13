@@ -93,20 +93,6 @@ print(classification_report(y_test, y_pred))
 model = joblib.dump(model,"model.pkl")
 scaler = joblib.dump(scaler,"scaler.pkl")
 
-def prediction(file_path):
-    """
-    Predict emotion from a new audio file.
-    """
-
-    # Extract features
-    features=feature_extract(file_path)
-    # Reshape the match sklearn inputs: (sample, features)
-    features=features.reshape(1, -1)
-    # Applying same transformation as training data
-    features=scaler.transform(features)  # Required
-    # Predict emotion label
-    return model.predict(features)[0]
-
 
 
 
